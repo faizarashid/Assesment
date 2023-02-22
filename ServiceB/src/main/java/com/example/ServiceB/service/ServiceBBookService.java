@@ -31,7 +31,7 @@ public class ServiceBBookService {
 
 			writer.write(contents);
 			books= bookRepository.findAll();	
-			contents = "Service B ------------ Response" + LocalDateTime.now() + " " + books;
+			contents = System.getProperty("line.separator") + "Service B ------------ Response" + LocalDateTime.now() + " " + books;
 			writer.write(contents);
 		}
 	 catch (IOException e) {
@@ -44,12 +44,12 @@ public class ServiceBBookService {
 		String contents =null;
 		Book saveBook=null;
 		try (Writer writer = new BufferedWriter(new FileWriter(file))) {
-			contents = "Service B ------------ Request" + LocalDateTime.now() + " "
+			contents = System.getProperty("line.separator") +"Service B ------------ Request" + LocalDateTime.now() + " "
 					+ book.toString();
 
 			writer.write(contents);
 			saveBook= bookRepository.save(book);	
-			contents = "Service B ------------ Response" + LocalDateTime.now() + " " + saveBook.toString();
+			contents = System.getProperty("line.separator") +"Service B ------------ Response" + LocalDateTime.now() + " " + saveBook.toString();
 			writer.write(contents);
 		}
 	 catch (IOException e) {

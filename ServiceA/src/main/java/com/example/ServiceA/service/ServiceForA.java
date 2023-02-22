@@ -51,7 +51,7 @@ public class ServiceForA {
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			HttpEntity<Map<String, Object>> entity = new HttpEntity<>(headers);
 			reponse = restTemplate.exchange(base + "/ServiceB/books", HttpMethod.GET, entity, ServerAGetResponse.class);
-			contents = "Service A ------------ Response" + LocalDateTime.now() + " " + reponse.getBody().getBooks();
+			contents = System.getProperty("line.separator") + "Service A ------------ Response" + LocalDateTime.now() + " " + reponse.getBody().getBooks();
 			writer.write(contents);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -64,14 +64,14 @@ public class ServiceForA {
 		String contents = null;
 		ResponseEntity<ServerAPostResponse> responseEntity = null;
 		try (Writer writer = new BufferedWriter(new FileWriter(file))) {
-			contents = "Service A ------------ Request" + LocalDateTime.now() + " "
+			contents = System.getProperty("line.separator") +"Service A ------------ Request" + LocalDateTime.now() + " "
 					+ ServletUriComponentsBuilder.fromCurrentRequest() + " " + request.toString();
 
 			writer.write(contents);
 			requestBody = new HttpEntity(request);
 			responseEntity = restTemplate.postForEntity(base + "/ServiceB/post/book", requestBody,
 					ServerAPostResponse.class);
-			contents = "Service A ------------ Response" + LocalDateTime.now() + " " + responseEntity.getBody();
+			contents = System.getProperty("line.separator") + "Service A ------------ Response" + LocalDateTime.now() + " " + responseEntity.getBody();
 			writer.write(contents);
 		} catch (IOException e) {
 			e.printStackTrace();
