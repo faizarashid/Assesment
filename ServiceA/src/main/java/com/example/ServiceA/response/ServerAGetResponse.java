@@ -1,7 +1,8 @@
 package com.example.ServiceA.response;
 
-import java.awt.print.Book;
 import java.util.List;
+
+import com.example.ServiceA.mapping.Book;
 
 public class ServerAGetResponse {
 	private List<Book> books;
