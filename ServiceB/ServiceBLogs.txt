@@ -1,1 +1,0 @@
-Service B ------------ Request2023-02-23T00:00:07.332325900 org.springframework.web.servlet.support.ServletUriComponentsBuilder@3fb7049fService B ------------ Response2023-02-23T00:00:08.214087800 [Book [id=1, title =null, author=null, year=0], Book [id=2, title =null, author=null, year=0]]
